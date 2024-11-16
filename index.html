@@ -4,7 +4,199 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Website</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #f3f4f7, #ffffff);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #16a085;
+    }
+
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #2c3e50;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f39c12;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+    }
+
+    .nav-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #f39c12;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #fff;
+    
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: #2c3e50;
+        width: 100%;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+        
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Button Styles */
+    button {
+      background: #16a085;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #1abc9c;
+      transform: translateY(-3px);
+    }
+
+    /* Footer Styles */
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      padding: 30px 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border: 1px solid #16a085;
+      box-shadow: 0 0 6px rgba(22, 160, 133, 0.5);
+    }
+
+    /* Gallery Grid */
+    #section3 .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    /* Special Effects */
+    .logo:hover {
+      text-shadow: 0 2px 4px rgba(243, 156, 18, 0.6);
+    }
+
+    p {
+      color: #555;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -16,7 +208,7 @@
       <li><a href="#section3">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="hamburger">&#9776;</div>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
   </nav>
 
   <!-- First Section -->
@@ -24,8 +216,8 @@
     <h1>Welcome to My Portfolio</h1>
     <p>Discover my journey and accomplishments.</p>
     <div class="content">
-      <img src="./ayush1.jpg"  alt="About Image">
-      <p>I am Ayush Sahu,Pursuing Btech Degree from YCCE,Nagur</p>
+      <img src="./ayush1.jpg" alt="About Image">
+      <p>I am Ayush Sahu, Pursuing Btech Degree from YCCE, Nagpur</p>
     </div>
   </section>
 
@@ -34,7 +226,7 @@
     <h2>Projects</h2>
     <div class="content">
       <p>Explore some of the amazing projects I’ve worked on.</p>
-      <img src="./project.png" alt="Project Image">
+      <img src="./project.png" alt="Project Image" >
       <img src="./project2.png" alt="Project Image">
       <img src="./project3.png" alt="Project Image">
     </div>
@@ -68,6 +260,14 @@
     </form>
   </footer>
 
-  
+  <script>
+    // Simple JavaScript for hamburger menu functionality
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
